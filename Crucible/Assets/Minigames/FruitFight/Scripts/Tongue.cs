@@ -100,7 +100,7 @@ public class Tongue : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //UnityEngine.Debug.Log(player.player_num + "collision!");
-        if (moving && (other.gameObject.tag == "fruit" || (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerMovement>() != player)))
+        if (moving && (other.gameObject.tag == "fruit" || (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerMovement>() != player && player.transform.parent == trueParent)))
         {
             other.gameObject.transform.parent = transform;
             //UnityEngine.Debug.Log(player.player_num + "caught a fruit!");
