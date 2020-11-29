@@ -30,5 +30,5 @@ MonoBehaviour:
   GameScene:
     sceneAsset: {fileID: 102900000, guid: da97d35142268994f97934479625f405, type: 3}
     scenePath: Assets/Minigames/_MinigameTemplate/Scene_Template.unity
-  SupportedGameModes: 2
+  SupportedGameModes: 6
   ExcludeFromGameList: 1

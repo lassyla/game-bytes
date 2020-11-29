@@ -13,10 +13,13 @@ public class FruitSpawn : MonoBehaviour
     public float y;
     public float interval_min;
     public float interval_max;
+    AudioSource audio; 
 
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+
         Invoke("SpawnRandom", UnityEngine.Random.Range(interval_min, interval_max));
     }
 
@@ -28,10 +31,13 @@ public class FruitSpawn : MonoBehaviour
 
     void SpawnRandom()
     {
+
         float x = UnityEngine.Random.Range(x_min, x_max);
         float z = UnityEngine.Random.Range(z_min, z_max);
 
         Instantiate(fruit_prefabs[UnityEngine.Random.Range(0, fruit_prefabs.Length)], new Vector3(x, y, z), Quaternion.identity);
+        audio.Play();
+
         Invoke("SpawnRandom", UnityEngine.Random.Range(interval_min, interval_max));
 
     }

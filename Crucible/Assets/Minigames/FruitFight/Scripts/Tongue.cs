@@ -10,7 +10,7 @@ public class Tongue : MonoBehaviour
     public bool retracting;
     private Vector3 tongueDestination;
     private Vector3 tongueStart;
-    private float tongueDuration = .479f;
+    private float tongueDuration = .958f;
     private float tongueTime = 0.0f;
     private Transform trueParent; 
 
@@ -18,6 +18,7 @@ public class Tongue : MonoBehaviour
     void Start()
     {
         trueParent = transform.parent;
+        //UnityEngine.Debug.Log(player.player_num + "tong S:fl!");
 
     }
 
@@ -35,7 +36,7 @@ public class Tongue : MonoBehaviour
             foreach (Transform child in transform)
             {
                 child.parent = trueParent;
-                UnityEngine.Debug.Log("moved child back");
+             //   UnityEngine.Debug.Log("moved child back");
 
             }
         }
@@ -45,7 +46,7 @@ public class Tongue : MonoBehaviour
             tongueTime += Time.deltaTime;
             if (tongueTime >= tongueDuration)
             {
-                UnityEngine.Debug.Log(player.player_num + "tongue in");
+             //   UnityEngine.Debug.Log(player.player_num + "tongue in");
 
                 moving = false;
 
@@ -98,10 +99,11 @@ public class Tongue : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //UnityEngine.Debug.Log(player.player_num + "collision!");
         if (moving && (other.gameObject.tag == "fruit" || (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerMovement>() != player)))
         {
             other.gameObject.transform.parent = transform;
-            UnityEngine.Debug.Log(player.player_num + "caught a fruit!");
+            //UnityEngine.Debug.Log(player.player_num + "caught a fruit!");
 
         }
     }
